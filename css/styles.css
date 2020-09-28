@@ -1,21 +1,21 @@
 /**
 * Seth Gunkel
 * 9/27/20
-* Updated on: 9/27/20
+* Updated on: 9/28/20
 *
 * Uses the Flexbox positioning system with the Mobile First methodology.
 */
 
 :root {
+    font-size:  calc(1vw + 1em);
 	box-sizing: border-box;
-    font-size: calc(1vw + 1em);
     
+    --default-font:                  'helvetica neue';
+    --default-gray:                  #97959C;
+    --default-text-color:            #000000;
+    --default-highlight-color:       #f86d07;
+    --default-white-background:      #ffffff;
     --default-blue-background-color: #193549;
-    --default-white-background: #ffffff;
-    --default-highlight-color:  #f86d07;
-    --default-text-color: #000000;
-    --footer-gray: #97959C;
-    --default-font: 'helvetica neue';
 }
 
 *,
@@ -25,81 +25,81 @@
 }
 
 body {
-    margin: 0;
+    margin:           0;
+    font-family:      var(--default-font), Helvetica, sans-serif;
     background-color: var(--default-blue-background-color);
-    font-family: var(--default-font), Helvetica, sans-serif;
 }
 
 button {
-    font-size: 0.8rem;
-    padding: 1em;
-    color: var(--default-text-color);
-    border: 2px solid var(--default-text-color);
+    color:            var(--default-text-color);
+    border:           2px solid var(--default-text-color);
+    padding:          1em;
+    font-size:        0.8rem;
     background-color: var(--default-white-background);
 }
 
-/* may need more work*/
+/* needs more work */
 select {
-    padding: 0.8em;
-    border: 2px solid var(--default-text-color);
-    border-radius: 0;
-    color: var(--default-text-color);
+    color:            var(--default-text-color);
+    border:           2px solid var(--default-text-color);
+    padding:          0.8em;
+    font-size:        0.8rem;
+    font-family:      var(--default-font);
+    border-radius:    0;
     background-color: var(--default-white-background);
-    font-family: var(--default-font);
-    font-size: 0.8rem;
 }
 
 footer {
-    bottom: 0;
-    text-align: left;
-    background-color: var(--footer-gray);
-    color: var(--default-text-color);
-    padding: 0.5em;
-    font-size: 0.7rem;
-    position: fixed;
-    width: 100%;
+    color:            var(--default-text-color);
+    width:            100%;
+    bottom:           0;
+    padding:          0.5em;
+    position:         fixed;
+    font-size:        0.7rem;
+    text-align:       left;
+    background-color: var(--default-gray);
 }
 
 .wrapper {
-    margin: 0;
+    margin:  0;
     padding: 1em;
 }
 
 .panel {
-    padding: 0.5em;
-    /*background-color: aqua; /* for development (to check the spacing) */
-    display: flex;
+    padding:        0 0.5em;
+    display:        flex;
     flex-direction: column;
+    /*background-color: aqua; /* for development (to check the spacing) */
 }
 
 .panel > * + * {
-    margin-top: 0.5em;
+    margin-top: 0.4em;
 }
 
 .time {
+    color:      var(--default-highlight-color);
+    font-size:  3.5rem;
     text-align: center;
-    color: var(--default-highlight-color);
-    font-size: 3rem;
 }
 
 .vertical-flex {
-    display: flex;
-    flex-direction: row;
+    display:         flex;
+    flex-direction:  row;
     justify-content: space-between;
 }
 
 .horizontal-flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display:         flex;
+    flex-direction:  column;
+    justify-content: space-around;
 }
 
 .add-subtract-btn {
+    padding:   1em;
     font-size: 1.7rem;
-    padding: 1em;
 }
 
 .undo-redo-reset-btn {
+    padding:   0 0.5em;
     font-size: 1rem;
-    padding: 0 0.5em;
 }
