@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+		Seth Gunkel
+		9/27/20
+		-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <meta charset="utf-8">
+    <title>Quiz Clock</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="horizontal-flex">
+            <!-- Main Timer -->
+            <div class="panel">
+                <div class="time">
+                    <span id="main-minutes">00</span>:<span id="main-seconds">00</span>
+                </div>
+                <button id="start-stop-main-timer">Start</button>
+                <div class="vertical-flex">
+                    <button id="addSec" class="add-subtract-btn">+</button>
+                    <div class="horizontal-flex undo-redo-reset-btn">
+                        <button id="undo">Undo</button>
+                        <button id="redo-rest">Reset</button>
+                    </div>
+                    <button id="addSec" class="add-subtract-btn">-</button>
+                </div>
+            </div> <!-- panel -->
+            <!-- Countdown -->
+            <div class="panel">
+                <div class="time">
+                    <span id="countdown-seconds">0</span>
+                </div>
+                <button id="countdown-start-stop-btn">Start</button>
+                <button id="quote-btn">Quote</button>
+                <select id="times">
+                    <option value="6">6 Minutes (Normal)</option>
+                    <option value="5">5 Minutes (Bye)</option>
+                    <option value="2">2 Minutes (Overtime</option>
+                    <option value="1">1 Minute (Between Halves)</option>
+                </select>
+            </div> <!-- panel -->
+        </div> <!-- horizontal-flex-->
+    </div> <!-- wrapper -->
+    <footer>
+        Seth Gunkel
+    </footer>
+</body>
+
+</html>
