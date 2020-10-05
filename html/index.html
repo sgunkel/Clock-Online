@@ -5,7 +5,7 @@
     <!--
 		Seth Gunkel
         9/27/20
-        Updated on 9/28/20
+        Updated on 10/4/20
 	-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
@@ -22,9 +22,9 @@
                 <div class="time">
                     <span id="main-minutes">00</span>:<span id="main-seconds">00</span>
                 </div>
-                <button id="start-stop-main-timer">Start</button>
+                <button id="start-stop-main-timer-Btn">Start</button>
                 <div class="vertical-flex">
-                    <button id="addSec" class="add-subtract-btn">-</button>
+                    <button id="subSec" class="add-subtract-btn">-</button>
                     <div class="horizontal-flex undo-redo-reset-btn">
                         <button id="undo">Undo</button>
                         <button id="redo-rest">Reset</button>
@@ -43,12 +43,13 @@
                 <select id="times">
                     <option value="6">6 Minutes (Normal)</option>
                     <option value="5">5 Minutes (Bye)</option>
-                    <option value="2">2 Minutes (Overtime</option>
+                    <option value="2">2 Minutes (Overtime)</option>
                     <option value="1">1 Minute (Between Halves)</option>
                 </select>
             </div> <!-- panel -->
         </div> <!-- horizontal-flex-->
     </div> <!-- wrapper -->
+    <script src="../js/clock.js"></script>
 </body>
 <footer>
     Seth Gunkel
