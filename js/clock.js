@@ -2,9 +2,28 @@
 * Seth Gunkel
 * 10/4/20
 * Updated on 10/4/20;
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*  DON'T USE THIS FILE!!!!
+*   A more improved design is in the timer.js file. Work from there now.
+*   This file is only used as a reference for some methods/functions and
+*   will be deleted once it's needed no more.
+*
+*
+*
 */
 
-const mainTimer = {
+let mainTimer = {
     seconds : 0,
     minutes : 6,
     isTicking : false,
@@ -34,7 +53,8 @@ const mainTimer = {
         this.startBtn.textContent = 'Start';
         this.isTicking = false;
     },
-    handleStartStop : function() {
+    handleTime : function() {
+        console.log('werkin');
         if (this.isTicking) {
             this.stop();
         } else {
@@ -78,8 +98,17 @@ function tick() {
     mainTimer.showTime();
 }
 
+function handleTimer() {
+    if (mainTimer.isTicking) {
+        mainTimer.stop();
+    } else {
+        mainTimer.start();
+    }
+}
+
+mainTimer.showTime();
 // Handlers
-document.getElementById('start-stop-main-timer-Btn').addEventListener('click', mainTimer.handleStartStop);
+document.getElementById('mainTimerBtn').addEventListener('click', handleTimer);
 document.getElementById('subSec').addEventListener('click', mainTimer.subSec);
 document.getElementById('addSec').addEventListener('click', mainTimer.addSec);
 
