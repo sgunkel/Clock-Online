@@ -1,7 +1,8 @@
 /**
 * Seth Gunkel
 * 9/27/20
-* Updated on: 9/28/20
+* Updated on: 10/12/20
+* 1.0.0
 *
 * Uses the Flexbox positioning system with the Mobile First methodology.
 */
@@ -80,6 +81,17 @@ footer {
     color:      var(--default-highlight-color);
     font-size:  3.5rem;
     text-align: center;
+}
+
+/* Creates an orange border around the time when it's running. */
+.time-running {
+
+    /* work on here some more - this adds pushes all the elements below
+        slightly when added and removed */
+
+
+    border:        2px solid var(--default-highlight-color);
+    border-radius: 0.07em;
 }
 
 .vertical-flex {
