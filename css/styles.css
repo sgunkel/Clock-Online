@@ -28,6 +28,7 @@
 body {
     margin:           0;
     font-family:      var(--default-font), Helvetica, sans-serif;
+    touch-action:     manipulation; /* Disables double tap to zoom on mobile */
     background-color: var(--default-blue-background-color);
 }
 
