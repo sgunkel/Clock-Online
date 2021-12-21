@@ -1,8 +1,6 @@
 /**
  * Seth Gunkel
- * 10/5/20
- * Last Updated on: 10/12/20
- * 1.0.0
+ * https://github.com/sgunkel/Clock-Online
  */
 
  /**
