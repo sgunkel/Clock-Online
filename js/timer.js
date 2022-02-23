@@ -17,8 +17,7 @@ let mainTimer = {
     minElement : document.getElementById('main-minutes')
 };
 
-function handleRunningBorder() { // ~~needs work
-    // should place an orage border around the mainTimer text
+function handleRunningBorder() {
     if (mainTimer.isTicking) {
         document.getElementById('time').classList.add('time-running');
     } else {
@@ -32,11 +31,15 @@ function showTime() {
     mainTimer.tmp = (mainTimer.seconds < 10.0) ?
         `0${parseInt(mainTimer.seconds, 10)}` :
         `${parseInt(mainTimer.seconds, 10)}`;
-    mainTimer.secElement.textContent = mainTimer.tmp;
+    mainTimer.secElement.textContent = mainTimer.tmp; // ?? [look into this 'tmp']
 };
 
 function tick() {
-    if (mainTimer.seconds == 0) {
+
+    // Stops the main timer when time runs out.
+    if (mainTimer.minutes == 0 && mainTimer.seconds == 0) {
+        stopTimer();
+    } else if (mainTimer.seconds == 0) {
         mainTimer.seconds = 59.5;
         mainTimer.minutes--;
     } else {
@@ -45,14 +48,14 @@ function tick() {
     showTime();
 }
 
-function startTimer() { // make this change the minutes/seconds be surrounded by a orange border
+function startTimer() {
     mainTimer.runningInterval = setInterval(tick, 500);
     document.getElementById('mainTimerBtn').textContent = 'Stop';
     mainTimer.isTicking = true;
     handleRunningBorder();
 }
 
-function stopTimer() { // make this get rid of the orange border
+function stopTimer() {
     clearInterval(mainTimer.runningInterval);
     document.getElementById('mainTimerBtn').textContent = 'Start';
     mainTimer.isTicking = false;
@@ -256,6 +259,7 @@ function handleTimeChange() {
         selectedTime = selectedTime.options[selectedTime.selectedIndex].value;
         mainTimer.minutes = selectedTime;
         mainTimer.valueToSet = selectedTime;
+        mainTimer.seconds = 0;
         showTime();
     }
 }
