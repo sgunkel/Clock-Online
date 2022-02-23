@@ -77,20 +77,16 @@ footer {
 }
 
 .time {
-    color:      var(--default-highlight-color);
-    font-size:  3.5rem;
-    text-align: center;
+    color:         var(--default-highlight-color);
+    border:        2px solid var(--default-blue-background-color);
+    font-size:     3.5rem;
+    text-align:    center;
+    border-radius: 0.07em;
 }
 
-/* Creates an orange border around the time when it's running. */
+/* Indicates the time is running with an orange border. */
 .time-running {
-
-    /* work on here some more - this adds pushes all the elements below
-        slightly when added and removed */
-
-
-    border:        2px solid var(--default-highlight-color);
-    border-radius: 0.07em;
+    border-color: var(--default-highlight-color);
 }
 
 .vertical-flex {
