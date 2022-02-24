@@ -12,7 +12,6 @@ let mainTimer = {
     valueToSet : 6,
     isTicking : false,
     tickingInterval : undefined,
-    tmp : '',
     secElement : document.getElementById('main-seconds'),
     minElement : document.getElementById('main-minutes')
 };
@@ -26,12 +25,13 @@ function handleRunningBorder() {
 }
 
 function showTime() {
-    mainTimer.minElement.textContent = mainTimer.minutes;
 
-    mainTimer.tmp = (mainTimer.seconds < 10.0) ?
-        `0${parseInt(mainTimer.seconds, 10)}` :
-        `${parseInt(mainTimer.seconds, 10)}`;
-    mainTimer.secElement.textContent = mainTimer.tmp; // ?? [look into this 'tmp']
+    let secondsLeft = (mainTimer.seconds < 10.0) ?
+                `0${parseInt(mainTimer.seconds, 10)}` :
+                parseInt(mainTimer.seconds, 10).toString();
+
+    mainTimer.secElement.textContent = secondsLeft;
+    mainTimer.minElement.textContent = mainTimer.minutes;
 };
 
 function tick() {
@@ -195,7 +195,7 @@ function undo() {
 
 /**
  * Countdown - this will countdown the time from 20 seconds (or 30 for a quote)
- *     when a quizzer is awnsering.
+ *     when a quizzer is answering.
  */
 let Countdown = {
     seconds : 20,
