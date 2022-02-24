@@ -7,48 +7,52 @@
   * Main Timer - keeps track of the time remaining in the quiz and also half times.
   */
 let mainTimer = {
-    seconds : 0,
-    minutes : 6,
-    valueToSet : 6,
-    isTicking : false,
+    seconds         : 0,
+    minutes         : 6,
+    valueToSet      : 6,
+    isTicking       : false,
     tickingInterval : undefined,
-    secElement : document.getElementById('main-seconds'),
-    minElement : document.getElementById('main-minutes')
+    secElement      : document.getElementById('main-seconds'),
+    minElement      : document.getElementById('main-minutes')
 };
 
 function handleRunningBorder() {
-    if (mainTimer.isTicking) {
-        document.getElementById('time').classList.add('time-running');
-    } else {
-        document.getElementById('time').classList.remove('time-running');
-    }
+
+    let timeBox = document.getElementById('time');
+    if (mainTimer.isTicking)
+        timeBox.classList.add('time-running');
+    else
+        timeBox.classList.remove('time-running');
 }
 
 function showTime() {
 
     let secondsLeft = (mainTimer.seconds < 10.0) ?
-                `0${parseInt(mainTimer.seconds, 10)}` :
-                parseInt(mainTimer.seconds, 10).toString();
+                        `0${parseInt(mainTimer.seconds, 10)}` :
+                        parseInt(mainTimer.seconds, 10).toString();
 
     mainTimer.secElement.textContent = secondsLeft;
-    mainTimer.minElement.textContent = mainTimer.minutes;
+    mainTimer.minElement.textContent = mainTimer.minutes.toString();
 };
 
 function tick() {
 
-    // Stops the main timer when time runs out.
-    if (mainTimer.minutes == 0 && mainTimer.seconds == 0) {
+    // Automatically stops the main timer when time runs out.
+    if (mainTimer.minutes == 0 && mainTimer.seconds == 0)
         stopTimer();
-    } else if (mainTimer.seconds == 0) {
+    else if (mainTimer.seconds == 0) {
+
         mainTimer.seconds = 59.5;
         mainTimer.minutes--;
-    } else {
-        mainTimer.seconds -= 0.5;
     }
+    else
+        mainTimer.seconds -= 0.5;
+
     showTime();
 }
 
 function startTimer() {
+
     mainTimer.runningInterval = setInterval(tick, 500);
     document.getElementById('mainTimerBtn').textContent = 'Stop';
     mainTimer.isTicking = true;
@@ -56,51 +60,65 @@ function startTimer() {
 }
 
 function stopTimer() {
+
     clearInterval(mainTimer.runningInterval);
     document.getElementById('mainTimerBtn').textContent = 'Start';
     mainTimer.isTicking = false;
+
     undoRedoHandler.addTime(mainTimer.minutes, mainTimer.seconds);
     handleRunningBorder();
 }
 
 function handleStartStop() {
-    if (mainTimer.isTicking) {
+
+    if (mainTimer.isTicking)
         stopTimer();
-    } else {
+    else
         startTimer();
-    }
 }
 
 function addSec() {
+
     if (!mainTimer.isTicking) {
+
         if (mainTimer.seconds >= 59) {
+
             mainTimer.seconds = 0;
             mainTimer.minutes++;
-        } else {
-            mainTimer.seconds++;
         }
+        else
+            mainTimer.seconds++;
         showTime()
     }
 }
 
 function subSec() {
+
     if (!mainTimer.isTicking) {
+
         if (mainTimer.minutes == 0 && mainTimer.seconds == 0) {
-            // Intentionally empty.
-        } else if (mainTimer.seconds < 1) {
+
+            /* Intentionally empty. */
+        }
+        else if (mainTimer.seconds < 1) {
+
             mainTimer.seconds = 59;
             mainTimer.minutes--;
-        } else {
-            mainTimer.seconds--;
         }
+        else
+            mainTimer.seconds--;
+
         showTime();
     }
 }
 
 function reset() {
+
     if (!mainTimer.isTicking) {
+
         let choice = confirm('Reset the quiz?');
         if (choice) {
+
             mainTimer.minutes = mainTimer.valueToSet;
             mainTimer.seconds = 0;
             showTime();
